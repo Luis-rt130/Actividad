@@ -60,23 +60,25 @@ Ve a la carpeta donde están estos archivos:
 - Este proyecto usa un archivo init.sql que crea la BD, la tabla y mete los nombres.
 
 - init.sql
-- CREATE DATABASE IF NOT EXISTS empresa;
-- USE empresa;
-- CREATE TABLE IF NOT EXISTS clientes (
--   id INT AUTO_INCREMENT PRIMARY KEY,
--   nombre VARCHAR(100) NOT NULL,
-- creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- );
-- INSERT INTO clientes (nombre) VALUES
-- ('Luis Romero'),
-- 
-- ('Benjamin Ponce');
+````
+ CREATE DATABASE IF NOT EXISTS empresa;
+ USE empresa;
+ CREATE TABLE IF NOT EXISTS clientes (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   nombre VARCHAR(100) NOT NULL,
+ creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
+ INSERT INTO clientes (nombre) VALUES
+ ('Luis Romero'),
+ 
+ ('Benjamin Ponce');
+````
 ### 🖥️ ¿Qué hace el index.php?
 
 - Tu archivo index.php se conecta a MySQL y muestra todos los nombres de la tabla clientes.
 
 - Código completo:
- ````bash
+ ````
  <?php
  $dbHost = getenv('DB_HOST') ?: 'nube-db';
  $dbPort = getenv('DB_PORT') ?: '3306';
@@ -101,7 +103,7 @@ Ve a la carpeta donde están estos archivos:
      die("Error conectando a la BD: " . $e->getMessage());
  }
  ````
- ````bash
+ ````
  ?>
  <!DOCTYPE html>
  <html lang="es">
