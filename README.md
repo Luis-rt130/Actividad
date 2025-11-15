@@ -76,46 +76,50 @@ Ve a la carpeta donde están estos archivos:
 - Tu archivo index.php se conecta a MySQL y muestra todos los nombres de la tabla clientes.
 
 - Código completo:
-- <?php
-- $dbHost = getenv('DB_HOST') ?: 'nube-db';
-- $dbPort = getenv('DB_PORT') ?: '3306';
-- $dbName = getenv('DB_NAME') ?: 'empresa';
-- $dbUser = getenv('DB_USER') ?: 'appuser';
-- $dbPass = getenv('DB_PASSWORD') ?: 'apppass';
-- try {
--     $pdo = new PDO(
-- 
--         "mysql:host=$dbHost;port=$dbPort;dbname=$dbName;charset=utf8mb4",
--         $dbUser,
--         $dbPass,
--         [
--             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
--             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
--         ]
--    );
--     $stmt = $pdo->query("SELECT nombre FROM clientes");
--     $nombres = $stmt->fetchAll();
-- 
-- } catch (Throwable $e) {
--     die("Error conectando a la BD: " . $e->getMessage());
-- }
-- ?>
-- <!DOCTYPE html>
-- <html lang="es">
-- <head>
--    <meta charset="UTF-8">
--    <title>Nombres desde la BD</title>
-- </head>
-- <body>
--    <h1>Nombres guardados en MySQL</h1>
--    <ul>
--        <?php foreach ($nombres as $n): ?>
-- 
--            <li><?= htmlspecialchars($n['nombre']) ?></li>
--        <?php endforeach; ?>
--    </ul>
--</body>
--</html>
+ ````bash
+ <?php
+ $dbHost = getenv('DB_HOST') ?: 'nube-db';
+ $dbPort = getenv('DB_PORT') ?: '3306';
+ $dbName = getenv('DB_NAME') ?: 'empresa';
+ $dbUser = getenv('DB_USER') ?: 'appuser';
+ $dbPass = getenv('DB_PASSWORD') ?: 'apppass';
+ try {
+     $pdo = new PDO(
+ 
+         "mysql:host=$dbHost;port=$dbPort;dbname=$dbName;charset=utf8mb4",
+         $dbUser,
+         $dbPass,
+         [
+             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+         ]
+    );
+     $stmt = $pdo->query("SELECT nombre FROM clientes");
+     $nombres = $stmt->fetchAll();
+ 
+ } catch (Throwable $e) {
+     die("Error conectando a la BD: " . $e->getMessage());
+ }
+ ````
+ ````bash
+ ?>
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+    <meta charset="UTF-8">
+    <title>Nombres desde la BD</title>
+ </head>
+ <body>
+    <h1>Nombres guardados en MySQL</h1>
+    <ul>
+        <?php foreach ($nombres as $n): ?>
+ 
+            <li><?= htmlspecialchars($n['nombre']) ?></li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
+````
 ### 🛑 Problemas comunes y cómo arreglarlos
 Problema	Explicación	Solución
 -
