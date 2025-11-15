@@ -76,7 +76,6 @@ Ve a la carpeta donde están estos archivos:
 - Tu archivo index.php se conecta a MySQL y muestra todos los nombres de la tabla clientes.
 
 - Código completo:
-- ````
 - <?php
 - $dbHost = getenv('DB_HOST') ?: 'nube-db';
 - $dbPort = getenv('DB_PORT') ?: '3306';
@@ -101,7 +100,6 @@ Ve a la carpeta donde están estos archivos:
 -     die("Error conectando a la BD: " . $e->getMessage());
 - }
 - ?>
-- ````
 - <!DOCTYPE html>
 - <html lang="es">
 - <head>
