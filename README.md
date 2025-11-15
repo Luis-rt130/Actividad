@@ -45,7 +45,6 @@ Ve a la carpeta donde están estos archivos:
 
 - http://localhost:8080
 
-- 
 - (ó el puerto que tengas configurado)
 
 - Deberías ver los nombres guardados en la BD:
@@ -80,7 +79,6 @@ Ve a la carpeta donde están estos archivos:
 
 - Código completo:
 - <?php
-- 
 - $dbHost = getenv('DB_HOST') ?: 'nube-db';
 - $dbPort = getenv('DB_PORT') ?: '3306';
 - $dbName = getenv('DB_NAME') ?: 'empresa';
@@ -134,12 +132,10 @@ Problema	Explicación	Solución
 
 - docker exec -it nube-db mariadb -u root -p
 
-- 
 - Inserta un nuevo nombre:
 
 - INSERT INTO clientes (nombre) VALUES ('Otro Nombre');
 
-- 
 - Recarga la página y listo.
 
  ### 📁 Estructura recomendada del proyecto
